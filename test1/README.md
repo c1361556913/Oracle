@@ -1,7 +1,7 @@
    ## 实验一：分析SQL执行计划，执行SQL语句的优化指导     
 
-*2016级软工三班*    *陈荣杰*       *201610414302*  
-   ###查询1：
+*2016级软工三班*    *陈荣杰*       *201610414302*    
+  ####查询1：
 <pre><code>
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
@@ -22,7 +22,7 @@ Sales
 	34 8955.88235
 </pre>
 
-   ###查询2：
+  ####查询2：
 <pre><code>
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
