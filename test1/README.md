@@ -1,7 +1,7 @@
    ## 实验一：分析SQL执行计划，执行SQL语句的优化指导     
 
 *2016级软工三班*    *陈荣杰*       *201610414302*    
-__查询1：
+__查询1：__
 <pre><code>
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
@@ -22,7 +22,7 @@ Sales
 	34 8955.88235
 </pre>
 
-__查询2：
+__查询2：__
 <pre><code>
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
@@ -46,7 +46,7 @@ Sales
 对查询一使用sqldeveloper的优化指导工具进行优化指导发现并无建议
   
 
-__设计自己的查询语句：
+__设计自己的查询语句：__
 <pre><code>
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
