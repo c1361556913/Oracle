@@ -50,9 +50,8 @@ Sales
 <pre><code>
 SELECT d.department_name，count(e.job_id)as "部门总人数"，
 avg(e.salary)as "平均工资"
-from hr.departments d，hr.employees e
-where d.department_id = e.department_id
+from hr.departments d INNER JOIN hr.employees e ON d.department_id = e.department_id 
 and d.department_name in ('IT'，'Sales')
 GROUP BY department_name;
 </code></pre>  
-相比于查询2，该查询使用的分类语句较少，能够一定程度提高效率。
+该查询使用的是内连接查询，相比于查询2，该查询使用的分类语句较少，能够一定程度提高效率。
