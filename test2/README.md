@@ -2,7 +2,7 @@
  *2016级软工3班*  
  *陈荣杰*  
  *201610414302*    
-#### 以system登录到pdborcl，创建角色con_res_view_crj和用户new_user_crj，并授权和分配空间：  
+ - #### 以system登录到pdborcl，创建角色con_res_view_crj和用户new_user_crj，并授权和分配空间：  
 用户名：new_user_crj
 <pre>
   [oracle@deep02 ~]$ sqlplus system/123@pdborcl
@@ -25,7 +25,7 @@ SQL> GRANT con_res_view_crj TO new_user_crj;
 SQL> exit
 </pre>    
 
-#### 新用户new_user_crj连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
+ - #### 新用户new_user_crj连接到pdborcl，创建表mytable和视图myview，插入数据，最后将myview的SELECT对象权限授予hr用户。
 <pre>
   [oracle@deep02 ~]$ sqlplus new_user_crj/123@pdborcl
 SQL*Plus: Release 12.1.0.2.0 Production on 星期三 10月 24 09:34:00 2018
@@ -54,7 +54,7 @@ SQL> GRANT SELECT ON myview TO hr;
 SQL> exit
 </pre>  
 
-#### 用户hr连接到pdborcl，查询new_user_crj授予它的视图myview
+ - #### 用户hr连接到pdborcl，查询new_user_crj授予它的视图myview
 <pre>
 [oracle@deep02 ~]$ sqlplus hr/123@pdborcl
 SQL*Plus: Release 12.1.0.2.0 Production on 星期三 10月 24 09:43:18 2018
@@ -71,7 +71,7 @@ zhang
 wang
 SQL> exit
 </pre>  
-#### 查看数据库使用情况  
+ - #### 查看数据库使用情况  
 <pre>
  SQL> SELECT tablespace_name,FILE_NAME,BYTES/1024/1024 MB,MAXBYTES/1024/1024 MAX_MB,autoextensible FROM dba_data_files WHERE tablespace_name='USERS';
 TABLESPACE_NAME
@@ -110,7 +110,7 @@ SYSTEM
 EXAMPLE
   1281.875      62.25   1219.625      95.14
 </pre>
-### 总结分析  
+ - ### 总结分析  
 本次实验使用的是Git Bash连接老师的Oracle数据库来完成的。本次实验中，首次创建用户，管理角色、权限等。  
 按照实验步骤要求，能够一定程度上理解实验，帮助达到实验目的，通过本次实验，自己能够简单进行用户管理，  
 熟悉了管理角色、权限、用户的方法。
