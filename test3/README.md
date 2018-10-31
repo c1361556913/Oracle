@@ -1,1 +1,65 @@
-## 实验三
+## 实验三 创建分区表
+*2016级软工3班*  
+ *陈荣杰*  
+ *201610414302* 
+
+  
+  <pre>
+  [oracle@deep02 ~]$ sqlplus new_user_crj/123@pdborcl
+
+SQL*Plus: Release 12.1.0.2.0 Production on 星期三 10月 31 08:49:31 2018
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+上次成功登录时间: 星期三 10月 24 2018 09:34:00 +08:00
+
+连接到:
+Oracle Database 12c Enterprise Edition Release 12.1.0.2.0 - 64bit Production
+With the Partitioning, OLAP, Advanced Analytics and Real Application Testing options
+SQL> CREATE TABLE orders
+  2  (
+order_id NUMBER(10, 0) NOT NULL
+  4   , customer_name VARCHAR2(40 BYTE) NOT NULL
+  5   , customer_tel VARCHAR2(40 BYTE) NOT NULL
+  6   , order_date DATE NOT NULL
+  7   , employee_id NUMBER(6, 0) NOT NULL
+  8   , discount NUMBER(8, 2) DEFAULT 0
+  9   , trade_receivable NUMBER(8, 2) DEFAULT 0
+ 10  )
+TABLESPACE USERS
+ 12  PCTFREE 10 INITRANS 1
+ 13  STORAGE (   BUFFER_POOL DEFAULT )
+NOCOMPRESS NOPARALLEL
+ 15  PARTITION BY RANGE (order_date)
+(
+ 17   PARTITION PARTITION_BEFORE_2016 VALUES LESS THAN (
+ 18   TO_DATE(' 2016-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS',
+ 'NLS_CALENDAR=GREGORIAN'))
+ 20   NOLOGGING
+ 21   TABLESPACE USERS
+ PCTFREE 10
+ STORAGE
+ INITRANS 1
+(
+ STORAGE
+(
+ INITIAL 8388608
+ NEXT 1048576
+ 28   MINEXTENTS 1
+)
+NOCOMPRESS NO INMEMORY
+ MAXEXTENTS UNLIMITED
+, PARTITION PARTITION_BEFORE_2017 VALUES LESS THAN (
+ BUFFER_POOL DEFAULT
+'NLS_CALENDAR=GREGORIAN'))
+)
+NOCOMPRESS NO INMEMORY
+, PARTITION PARTITION_BEFORE_2017 VALUES LESS THAN (
+TO_DATE(' 2017-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS',
+'NLS_CALENDAR=GREGORIAN'))
+NOLOGGING
+ 37  );
+
+表已创建。
+
+  </pre>
