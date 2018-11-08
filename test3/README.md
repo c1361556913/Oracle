@@ -170,3 +170,13 @@ TABLESPACE USERS03
 表已创建
 </pre>  
 #### 插入数据  
+
+<pre>
+  CREATE SEQUENCE SEQ_TEST
+　　　INCREMENT BY 1
+　　　START WITH 1
+ ;
+
+序列已创建。
+</pre>
+
