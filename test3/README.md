@@ -179,4 +179,13 @@ TABLESPACE USERS03
 
 序列已创建。
 </pre>
-
+<pre>
+Begin
+     for i in 1..1000
+     loop
+            insert into ORDERS(ORDER_ID,CUSTOMER_NAME,CUSTOMER_TEL,ORDER_DATE,EMPLOYEE_ID,DISCOUNT) VALUES(SEQ_TEST.nextval,'张三',12345,to_date('2016-01-01','yyyy-mm-dd'),SEQ_TEST.nextval,SEQ_TEST.nextval);
+     end loop;
+      commit;
+   end;
+  /
+</pre>
